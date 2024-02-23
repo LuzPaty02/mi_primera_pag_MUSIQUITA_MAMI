@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MiWebsiteBebe</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <div class="container">
+      <h1>Musiquita Mami <333 </h1>
+      <img src="images\theOffice.jpg" alt="Your Image" />
+    </div>
+    <p>Ingresa una palabra para encontrar una canción ;p</p>
+    <input type="text" placeholder="Escribe aquí" maxlength="60" id="prompt" />
+    <button id="button">definir</button>
+    <div class="container">
+        <div class="column">
+          <a href="#" id="output1_titulo">
+            Top canciones recomendadas por AI</a>
+          <p id="output"></p>
+        </div>
+        <div class="column">
+            <!--link spotify-->
+            <a href="#" src="credentials.js" id="output_link">
+                Top canciones recomendadas por spotify </a>
+          </div>
+        <div class="column">
+          <!-- Image -->
+          <video width="320" height="240" autoplay muted>
+            <source src="images\Video de WhatsApp 2024-02-19 a las 23.04.41_08620c6e.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
