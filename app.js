@@ -1,12 +1,13 @@
+
 //Open AI
 async function miFuncionOpenAi(InputValue) {
   const endpoint_ai = "https://api.openai.com/v1/chat/completions";
+  console.log("Clave: " + API_KEY)
   const opciones = {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      Authorization:
-        "Bearer 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",
+      Authorization: API_KEY,
     },
     body: JSON.stringify({
       model: "gpt-3.5-turbo",
@@ -50,11 +51,10 @@ async function miTokenSpotify(client_id, client_secret) {
 
 
 
-
 async function miFuncionSpotify(InputValue) {
     console.log("miFuncionSpotify "+ InputValue)
 
-    const token= await miTokenSpotify();
+    const token= await miTokenSpotify(client_id, client_secret);
     var searchParameters={
     method: "GET",
     headers: {
@@ -87,7 +87,6 @@ async function miFuncionSpotify(InputValue) {
 
 // 
 document.addEventListener("DOMContentLoaded", () => {
-  const promptInput = document.querySelector("#prompt").value;
   const button = document.querySelector("#button");
   const output = document.querySelector("#output");
   const output_link = document.querySelector("#output_link");
@@ -99,8 +98,9 @@ document.addEventListener("DOMContentLoaded", () => {
         const result = await miFuncionOpenAi(promptInput);
         output.innerText = result;
 
+        output_link.innerHTML = '';
+
         const getToken = await miTokenSpotify();
-        console.log(getToken);
 
         const externalLinks = await miFuncionSpotify(promptInput);
 
